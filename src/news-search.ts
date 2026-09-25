@@ -124,7 +124,7 @@ export class TypesearchNewsSearch extends StructuredTool<z.ZodType<TypesearchNew
 
   protected async _call(input: TypesearchNewsSearchInput, _runManager?: CallbackManagerForToolRun, config?: ToolRunnableConfig): Promise<[string, NewsSearchOutput] | string> {
     const dated = input.days !== undefined || input.published_after !== undefined || input.published_before !== undefined;
-    const options: SearchOptions & { countries?: string[]; languages?: string[] } = {
+    const options: SearchOptions = {
       ...searchOptions({
         mode: this.mode,
         maxResults: this.maxResults,
